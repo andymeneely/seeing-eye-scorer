@@ -1,5 +1,5 @@
 # Update the names list before training so the class IDs match your labels.
-path: /home/runner/work/seeing-eye-scorer/seeing-eye-scorer/datasets/fine_tuning
+path: .
 train: images/train
 val: images/val
 test: images/test
