@@ -1,0 +1,21 @@
+{
+  "model": "demo.pt",
+  "source": "demo.jpg",
+  "frames": [
+    {
+      "frame_index": 0,
+      "captured_at": "2026-05-19T00:00:00+00:00",
+      "detections": [
+        {"label": "coin", "class_id": 0, "confidence": 0.99, "bbox_xyxy": [10, 10, 50, 50]},
+        {"label": "coin", "class_id": 0, "confidence": 0.98, "bbox_xyxy": [60, 10, 100, 50]},
+        {"label": "crown-card", "class_id": 1, "confidence": 0.97, "bbox_xyxy": [10, 60, 80, 140]},
+        {"label": "castle", "class_id": 2, "confidence": 0.96, "bbox_xyxy": [120, 10, 180, 80]},
+        {"label": "banner", "class_id": 3, "confidence": 0.95, "bbox_xyxy": [185, 10, 240, 80]},
+        {"label": "meeple", "class_id": 4, "confidence": 0.94, "bbox_xyxy": [120, 90, 160, 140]},
+        {"label": "meeple", "class_id": 4, "confidence": 0.93, "bbox_xyxy": [165, 90, 205, 140]},
+        {"label": "meeple", "class_id": 4, "confidence": 0.92, "bbox_xyxy": [210, 90, 250, 140]},
+        {"label": "meeple", "class_id": 4, "confidence": 0.91, "bbox_xyxy": [255, 90, 295, 140]}
+      ]
+    }
+  ]
+}

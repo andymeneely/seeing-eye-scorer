@@ -1,0 +1,33 @@
+{
+  "game": "prototype-tabletop-game",
+  "rules": [
+    {
+      "name": "Coins",
+      "type": "count",
+      "class": "coin",
+      "points_each": 1
+    },
+    {
+      "name": "Crown cards",
+      "type": "count",
+      "class": "crown-card",
+      "points_each": 3
+    },
+    {
+      "name": "Castle set bonus",
+      "type": "set",
+      "classes": {
+        "castle": 1,
+        "banner": 1
+      },
+      "points": 5
+    },
+    {
+      "name": "Meeple majority bonus",
+      "type": "bonus",
+      "class": "meeple",
+      "at_least": 4,
+      "points": 7
+    }
+  ]
+}

@@ -55,6 +55,71 @@ intake and annotation workflow.
 4. Fine-tune a YOLO model on those images
 5. Run local detection and map detections to that game's scoring rules
 
+## Prototype scripts
+
+The repository now includes a minimal Python prototype for the workflow above.
+Install dependencies with:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+### 1. Capture webcam images into a YOLO dataset
+
+```bash
+python scripts/capture_dataset.py data/my-game --classes coin crown-card castle banner meeple
+```
+
+- opens the USB webcam with a live preview
+- press `c` to capture a frame
+- press `a` to toggle timed auto-capture
+- press `q` to quit
+- writes images, empty YOLO label files, `captures.jsonl`, `classes.txt`, and `data.yaml`
+
+Label the generated images with any YOLO-compatible labeling tool by filling in
+those `.txt` files.
+
+### 2. Fine-tune a YOLO model locally
+
+```bash
+python scripts/train_yolo.py data/my-game/data.yaml --model yolo11n.pt --epochs 50
+```
+
+This uses Ultralytics YOLO for training and prints the path to the best weights.
+Pass `--export-format onnx` if you also want an exported runtime artifact.
+
+### 3. Run local inference on a webcam or file
+
+```bash
+python scripts/run_inference.py runs/seeing-eye-scorer/prototype/weights/best.pt --source 0 --display --max-frames 25
+```
+
+This writes detection output to `detections.json` by default. Use an image or
+video path instead of `0` to score saved media.
+
+### 4. Apply per-game scoring rules
+
+```bash
+python scripts/score_game.py examples/sample_detections.json config/games/prototype_game.json
+```
+
+The sample config shows three prototype rule types:
+
+- `count`: points per detected class
+- `set`: bonus for completing a required combination of classes
+- `bonus`: fixed bonus when a class count reaches a threshold
+
+## Files
+
+- `scripts/capture_dataset.py`: webcam capture and dataset bootstrap
+- `scripts/train_yolo.py`: Ultralytics fine-tuning entry point
+- `scripts/run_inference.py`: detection runner for webcam, images, or video
+- `scripts/score_game.py`: game scoring entry point
+- `config/games/prototype_game.json`: example score rules
+- `examples/sample_detections.json`: example detection payload
+
 ## Initial implementation priorities
 
 1. webcam capture from USB
