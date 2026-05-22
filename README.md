@@ -36,6 +36,10 @@ This repository is intended to support a workflow with:
 - Fine-tune the YOLO model on that labeled dataset
 - Export the trained weights for local scoring runs
 
+The repository includes a YOLO-compatible dataset scaffold for new fine-tuning
+images in `datasets/fine_tuning`. See `datasets/fine_tuning/README.md` for the
+intake and annotation workflow.
+
 ### 4. Scoring
 
 - Convert detected components into game-specific score events
