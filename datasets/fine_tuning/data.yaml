@@ -1,7 +1,0 @@
-# Update the names list before training so the class IDs match your labels.
-path: .
-train: images/train
-val: images/val
-test: images/test
-names:
-  0: TODO_replace_with_class_name
